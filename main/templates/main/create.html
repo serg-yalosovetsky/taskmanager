@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block header %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+{{ tasks }}
+{% endblock %}
+
+{% block tasks-block %}
+
+    <div class="row card-deck  text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">Создать задачу</h3>
+                </div>
+
+                <form method="POST" class="card-body">
+                    {% csrf_token %}
+                    <div>
+                        {{ form.title }} <br>
+
+                    </div>
+                    <div>
+                        {{ form.task }} <br>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<h3><span class="alert">{{error}}</span></h3>
+
+{% endblock %}
+

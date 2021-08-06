@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block header %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+{{ tasks }}
+{% endblock %}
+
+{% block tasks-block %}
+
+    {% if tasks %}
+        {% for task in tasks %}
+            <div class="row  text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h3 class="my-0 fw-normal">{{task.title}}</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled ">
+                            <li> {{task.task}}</li>
+
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+
+    <div class="row  text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">У нас нет записей</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
